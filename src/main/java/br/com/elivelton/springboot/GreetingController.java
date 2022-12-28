@@ -1,4 +1,4 @@
-package br.com.elivelton;
+package br.com.elivelton.springboot;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GreetingsController {
+public class GreetingController {
     private static final String template = "Hello, %s!";
     private static AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/greeting")
-    public Greetings greeting(@RequestParam(value="name", defaultValue="World")String name) {
-        return new Greetings(counter.incrementAndGet(), String.format(template, name));
+    public Greeting greeting(@RequestParam(value="name", defaultValue="World")String name) {
+        return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
 }
